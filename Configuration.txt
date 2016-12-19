@@ -1,0 +1,50 @@
+Embedded HTTP Server Options
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+See defines in http_options.h:
+
+HTTP_OPT_OUTPUT_BUFFER_SIZE    [1000]
+  How big should each TCP/IP packet be before sending? 
+
+HTTP_OPT_INPUT_LINE_MAX        [250]
+ What is the maximum HTTP option/request line length?
+
+HTTP_OPT_FILE_CHUNKSIZE        [128]
+ Chunk size of file reads to be performed. Increasing this will increase stack size usage.
+
+HTTP_OPT_MAX_ARGS_LENGTH       [128]
+ Maximum HTTP GET request length.
+
+HTTP_OPT_DEFAULT_FILE          ["/index.htm"]
+ Default file loaded when none specified.
+
+HTTP_OPT_USE_PATH              [1/0]
+ Is a file path added to each request?
+
+HTTP_OPT_FILE_PATH             ["/var/www"]
+ If HTTP_OPT_USE_PATH is set to 1, what is the path of where the website files are stored on the local machine (if relevant).
+
+HTTP_OPT_SUPPORT_POST          [1/0]
+ Enable HTTP POST request support?
+
+HTTP_OPT_MAX_POST_DATA         [256]
+ Max POST data to be received.
+
+HTTP_OPT_SUPPORT_AUTH          [1/0]
+ Enable support for HTTP login requests.
+
+HTTP_OPT_MAX_AUTH_STR          [250]
+ Max string used in encoded version of username & password.
+
+HTTP_OPT_MAX_USERNAME          [50]
+HTTP_OPT_MAX_PASSWORD          [50]
+ Max username / password length.
+
+HTTP_OPT_NO_CACHE_PRAGMA       [1/0]
+ Disable remote client caching of web requests (useful for active pages).
+
+HTTPD_OPT_USE_CUSTOM_PRINTF    [1/0]
+ Use custom printf (1) or standard vsnprintf functions (0)
+
+HTTPD_OPT_MAX_PRINTF_LEN       [256]
+ Max generated HTTP string length (should be big enough to contain path & HTTP request info).

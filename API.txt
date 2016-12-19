@@ -1,0 +1,28 @@
+Embedded HTTP Server API
+-=-=-=-=-=-=-=-=-=-=-=-=-
+
+void http_init(    void *  (*_open) (char * name, char * mode),
+                   int     (*_read) (char * buf, unsigned size1, unsigned size2, void * file),
+                   int     (*_close)(void * file),
+                   int     (*_send) (int s, const char * buf, int len, int flags) )
+
+  Called to initialize HTTP Server app.
+  This should be called prior to any other functions.
+
+  _open = System fopen function
+  _read = System fread function
+  _close = System fclose function
+  _send = System send function (Berkley sockets API)
+
+void http_new_connection(struct http_session *p, int s)
+
+  Called to initialise new HTTP server session.
+  p = HTTP session pointer
+  s = New connections socket 
+
+int http_process_data(struct http_session *p, char *buf, int len)
+ 
+  Called when new data is received for a HTTP server session.
+  p = HTTP session pointer
+  buf = Data pointer
+  len = Data length in bytes
